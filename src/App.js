@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import weather_blank from './img/weather_blank.png';
 import loading_gif from './img/loading.gif';
 import 'animate.css';
 import './App.css';
+import config from './config.js';
+import cities from 'cities-list';
 
 var API_BASE = "https://api.apixu.com/v1/current.json";
-var API_KEY = "6b524a27c03d442b98823802170208"
-
-const cities = require("cities-list");
-
-//const cities = ["Bangkok","Boo","Bababa","Gaga","Taaa"];
+var API_KEY = config.API_KEY; //REPLACE WITH YOUR API KEY
 
 class FilterList extends Component {
 
@@ -25,7 +22,7 @@ class FilterList extends Component {
   }
 
   render(){
-    if(!this.props.show || this.props.filterString == "") return null;
+    if(!this.props.show || this.props.filterString === "") return null;
 
     var filterString = this.props.filterString
     //console.log(filterString);
@@ -36,7 +33,7 @@ class FilterList extends Component {
 
     var component = this;
     var list = filtered.map(function(city){
-      return <li onClick={component.handleClick}>{city}</li>
+      return <li onClick={component.handleClick} key={city}>{city}</li>
     })
     return (
       <div className="filter-list-wrapper">
@@ -49,7 +46,6 @@ class FilterList extends Component {
   }
 }
 
-//https://kitt.lewagon.com/placeholder/cities/paris
 
 class SearchBar extends Component {
   constructor(props){
@@ -137,11 +133,10 @@ class Weather extends Component {
         </div>
       );
     }
-    /*
-      You should start by showing at least the city name, the current temperature, the current condition, such as “sunny” or “partly cloudy”.
-    */
+
+
     var city = weatherData.location.name;
-    var country = weatherData.location.country;
+    // var country = weatherData.location.country;
     var temp_c = weatherData.current.temp_c;
     var condition = weatherData.current.condition.text;
     var conditionIconUrl = "https://" + weatherData.current.condition.icon.slice(2);
