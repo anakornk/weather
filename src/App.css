@@ -1,0 +1,157 @@
+.App {
+  text-align: center;
+  display :flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.weather {
+/*  animation: flipInY 2s 1;
+*/
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');
+  background-size: cover !important;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 4px;
+  margin: 20px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* OR subtle border */
+}
+
+.weather .city{
+  font-size: 3em;
+  color: white;
+}
+
+.weather .condition {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size:2em;
+}
+
+.weather .temperature {
+  font-size: 2.5em;
+  color:white;
+}
+
+.searchbar {
+  background-color: RGBA(36, 41, 46, 1.00);
+  width:100%;
+  padding: 5px;
+}
+
+body {
+  background-color: RGBA(233, 235, 238, 1.00);
+}
+
+.searchbar input[type=text] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  /*transition: box-shadow 0.3s, border 0.3s;*/
+  width: 150px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.searchbar input[type=text]:focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+  width: 30%;
+}
+
+.searchbar input[type=submit] {
+  margin: 5px;
+  border-radius:4px;
+  color: black;
+  background-color: RGBA(233, 235, 238, 0.6);
+  padding: 10px 15px;
+  font-family: arial;
+  border: 1px solid rgba(0,0,0,0.2);
+  transition: background-color 1s ease;
+
+}
+
+.searchbar input[type=submit]:hover {
+  background-color: RGBA(233, 235, 238, 0.8);
+}
+
+.shake {
+  animation: shake 0.2s 1;
+}
+
+.filter-list-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /*width:100%;*/
+}
+
+ul.filter-list {
+  background-color:white;
+  position: absolute;
+  top:-10px;
+  left: 50%;
+  width: 30%;
+  text-align: left;
+  list-style: none;
+  padding-left: 0px;
+  transform: translate(-50%, 0);
+}
+
+ul.filter-list li {
+  width:100%;
+  padding: 5px;
+}
+
+ul.filter-list li:nth-child(even) {
+  background-color: #CCC;
+}
+
+ul.filter-list li:nth-child(odd) {
+  background-color: #FFF;
+}
+
+@media only screen and (max-width: 500px) {
+  .weather {
+    width: 90%;
+    height: calc(100vh - 45);
+  }
+  .searchbar input[type=text]{
+    width:80%;
+  }
+  .searchbar input[type=text]:focus {
+    width: 80%;
+  }
+
+  ul.filter-list{
+    width: 100%;
+  }
+}
