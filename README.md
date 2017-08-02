@@ -15,6 +15,6 @@ var API_KEY = "YOUR_API_KEY_HERE";
 exports.API_KEY = API_KEY;
 ~~~~
 
-##DEMO:
+## DEMO:
 
 https://anakornk.github.io/weather
